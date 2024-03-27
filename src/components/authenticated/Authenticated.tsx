@@ -44,7 +44,7 @@ export const Authenticated = () => {
     for (let i = 0; i < 5; i++) {
       if ((userNfts.current || []).length > 5) break
       try {
-        const token = await contract.tokenOfOwnerByIndex(address, 0)
+        const token = await contract.tokenOfOwnerByIndex(address, i)
         if (token !== undefined) {
           const tokenUri = await contract.tokenURI(token)
           if (tokenUri) indexedUserNfts = [tokenUri, ...indexedUserNfts]
