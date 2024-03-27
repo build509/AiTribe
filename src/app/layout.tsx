@@ -28,9 +28,11 @@ export default function RootLayout(
   return (
     <html lang="en">
     <body className={plexmono.className}>
-    <Web3ModalProvider>
-      {children}
-    </Web3ModalProvider>
+    <div className="h-screen bg-rat bg-no-repeat bg-contain bg-center bg-opacity-50">
+      <Web3ModalProvider>
+        {children}
+      </Web3ModalProvider>
+    </div>
     </body>
     </html>
   );

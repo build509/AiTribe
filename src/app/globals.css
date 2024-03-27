@@ -3,17 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 23, 91, 209;
+  --background-end-rgb: 23, 91, 209;
 }
 
 body {
@@ -23,6 +15,10 @@ body {
       transparent,
       rgb(var(--background-end-rgb))
   ) rgb(var(--background-start-rgb));
+}
+
+.title {
+
 }
 
 @layer utilities {
@@ -43,4 +39,19 @@ body {
   src: url('/fonts/PPNeueBit-Bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
+}
+
+.square::before {
+  content: '';
+  display: block;
+  padding-top: 100%; /* This creates the aspect ratio 1:1 */
+}
+
+.square-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* Your content styling here */
 }
