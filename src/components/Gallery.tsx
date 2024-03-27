@@ -33,6 +33,7 @@ export const Gallery = ({isMintingLoading, isLoading, nfts, type}: Props) => {
             />
           </div>
         )}
+        {(!(nfts || []).length && !isMintingLoading) && <div>No NFTs yet</div>}
       </div>
     }
   </div>

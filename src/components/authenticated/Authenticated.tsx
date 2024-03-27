@@ -65,6 +65,8 @@ export const Authenticated = () => {
     const signer = await ethersProvider.getSigner()
     const contract = new Contract(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "", ABI, signer)
     let indexedNfts: string[] = []
+    try {
+
     const totalSupply = await contract.totalSupply()
     if (!totalSupply) return
     for (let i = Number(totalSupply) - 1; i > 0; i--) {
@@ -77,6 +79,10 @@ export const Authenticated = () => {
       }
     }
     setOtherNfts(indexedNfts)
+    } catch (e) {
+
+    }
+
     setIsOtherNftsLoading(false)
   }
 
