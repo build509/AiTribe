@@ -12,7 +12,7 @@ const HTML_REGULAR =
 
 export const Authenticated = () => {
   const {walletProvider} = useWeb3ModalProvider()
-  const {address} = useWeb3ModalAccount()
+  const {address, chainId} = useWeb3ModalAccount()
 
   const textAreaRef = useRef<HTMLElement>(null)
   const [message, setMessage] = useState<string>("")
@@ -32,7 +32,7 @@ export const Authenticated = () => {
   useEffect(() => {
     getUserNfts()
     getOtherNfts()
-  }, [])
+  }, [chainId])
 
   const getUserNfts = async () => {
     if (!walletProvider || !address) return
