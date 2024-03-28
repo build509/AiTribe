@@ -8,7 +8,7 @@ To see the contracts this app uses check this repo: [Contracts](https://github.c
 
 ### Running Locally
 
-1. Install NodeJS 18.
+1. Install NodeJS >=18.
 2. Clone the repository.
 3. Install dependencies with `npm install`.
 4. Copy `.env.example` to `.env.local` and update environment variables.  
