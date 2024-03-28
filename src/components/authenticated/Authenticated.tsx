@@ -4,7 +4,7 @@ import ContentEditable from "react-contenteditable";
 import {useCallback, useEffect, useRef, useState} from "react";
 import {FONT_BOLD} from "@/fonts/fonts";
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
-import {Gallery} from "@/components/Gallery";
+import {Gallery, Nft} from "@/components/Gallery";
 import {ABI} from "@/types/network";
 
 const HTML_REGULAR =
@@ -21,9 +21,9 @@ export const Authenticated = () => {
   const [isMintingLoading, setIsMintingLoading] = useState(false)
 
   const [_, setUserNftsCount] = useState<number>(0)
-  const userNfts = useRef<string[]>([])
+  const userNfts = useRef<Nft[]>([])
 
-  const [otherNfts, setOtherNfts] = useState<string[]>([])
+  const [otherNfts, setOtherNfts] = useState<Nft[]>([])
 
   const [isUserNftsLoading, setIsUserNftsLoading] = useState<boolean>(false)
   const [isOtherNftsLoading, setIsOtherNftsLoading] = useState<boolean>(false)
@@ -40,14 +40,14 @@ export const Authenticated = () => {
     const ethersProvider = new BrowserProvider(walletProvider)
     const signer = await ethersProvider.getSigner()
     const contract = new Contract(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "", ABI, signer)
-    let indexedUserNfts: string[] = []
+    let indexedUserNfts: Nft[] = []
     for (let i = 0; i < 5; i++) {
       if ((userNfts.current || []).length > 5) break
       try {
         const token = await contract.tokenOfOwnerByIndex(address, i)
         if (token !== undefined) {
           const tokenUri = await contract.tokenURI(token)
-          if (tokenUri) indexedUserNfts = [tokenUri, ...indexedUserNfts]
+          if (tokenUri) indexedUserNfts = [{tokenUri}, ...indexedUserNfts]
         }
       } catch (e) {
         break
@@ -64,20 +64,20 @@ export const Authenticated = () => {
     const ethersProvider = new BrowserProvider(walletProvider)
     const signer = await ethersProvider.getSigner()
     const contract = new Contract(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "", ABI, signer)
-    let indexedNfts: string[] = []
+    let indexedNfts: Nft[] = []
     try {
-    const totalSupply = await contract.totalSupply()
-    if (!totalSupply) return
-    for (let i = Number(totalSupply) - 1; i >= 0; i--) {
-      if (indexedNfts.length > 5 || otherNfts.length > 5) break
-      try {
-        const tokenUri = await contract.tokenURI(i)
-        if (tokenUri) indexedNfts = [...indexedNfts, tokenUri]
-      } catch (e) {
-        break
+      const totalSupply = await contract.totalSupply()
+      if (!totalSupply) return
+      for (let i = Number(totalSupply) - 1; i >= 0; i--) {
+        if (indexedNfts.length > 5 || otherNfts.length > 5) break
+        try {
+          const tokenUri = await contract.tokenURI(i)
+          if (tokenUri) indexedNfts = [...indexedNfts, {tokenUri}]
+        } catch (e) {
+          break
+        }
       }
-    }
-    setOtherNfts(indexedNfts)
+      setOtherNfts(indexedNfts)
     } catch (e) {
 
     }
@@ -105,7 +105,7 @@ export const Authenticated = () => {
           const tokenUri = await pollTokenUri(contract, tokenId)
           if (tokenUri) {
             userNfts.current = [
-              tokenUri,
+              {tokenUri, txHash: receipt.hash},
               ...userNfts.current,
             ]
             setUserNftsCount(userNfts.current.length)
