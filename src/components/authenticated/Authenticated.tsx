@@ -66,10 +66,9 @@ export const Authenticated = () => {
     const contract = new Contract(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "", ABI, signer)
     let indexedNfts: string[] = []
     try {
-
     const totalSupply = await contract.totalSupply()
     if (!totalSupply) return
-    for (let i = Number(totalSupply) - 1; i > 0; i--) {
+    for (let i = Number(totalSupply) - 1; i >= 0; i--) {
       if (indexedNfts.length > 5 || otherNfts.length > 5) break
       try {
         const tokenUri = await contract.tokenURI(i)
