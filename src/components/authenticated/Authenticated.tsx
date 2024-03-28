@@ -72,7 +72,7 @@ export const Authenticated = () => {
       if (indexedNfts.length > 5 || otherNfts.length > 5) break
       try {
         const tokenUri = await contract.tokenURI(i)
-        if (tokenUri) indexedNfts = [tokenUri, ...indexedNfts]
+        if (tokenUri) indexedNfts = [...indexedNfts, tokenUri]
       } catch (e) {
         break
       }
