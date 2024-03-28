@@ -33,7 +33,13 @@ export const Gallery = ({isMintingLoading, isLoading, nfts, type}: Props) => {
             />
           </div>
         )}
-        {(!(nfts || []).length && !isMintingLoading) && <div>No NFTs yet</div>}
+        {(!(nfts || []).length && !isMintingLoading) && <div>
+          {type === "other" ?
+            <div>Make sure your wallet RPC URL is https://devnet.galadriel.com/</div>
+            :
+            <div>No NFTs yet</div>
+          }
+        </div>}
       </div>
     }
   </div>
