@@ -15,7 +15,7 @@ To see the contracts this app uses check this repo: [Contracts](https://github.c
 Edit .env.local
 `NEXT_PUBLIC_NETWORK` "local" defaults to `http://localhost:8545/`  
 and anything else uses `https://devnet.galadriel.com/` as the RPC url  
-The default contract address is Galadriel testnet contract address
+The default contract address is Galadriel devnet contract address
 5. Start the application using `npm run dev`.
 6. Visit `http://localhost:3001` in your browser.
 

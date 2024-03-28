@@ -45,7 +45,7 @@ export function Landing() {
               target="_blank"
               className="px-2 underline"
             >
-              Galadriel testnet
+              Galadriel devnet
             </a>
             and to mint, get tokens from
             <a

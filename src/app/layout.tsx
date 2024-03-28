@@ -8,7 +8,7 @@ export const metadata = {
     default: 'Galadriel On-Chain Dall-E',
     template: `%s - Dall-E`
   },
-  description: 'On-Chain image generation powered by Dall-E on Galadriel testnet',
+  description: 'On-Chain image generation powered by Dall-E on Galadriel devnet',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
