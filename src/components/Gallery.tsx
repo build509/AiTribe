@@ -41,7 +41,7 @@ export const Gallery = ({isMintingLoading, isLoading, nfts, type}: Props) => {
                 {nft.txHash && <div>
                   <a
                     className="underline"
-                    href={`https://explorer.galadriel.com/transaction/${nft.txHash}`}
+                    href={`https://explorer.galadriel.com/tx/${nft.txHash}`}
                     target="_blank"
                   >
                     {nft.txHash.slice(0, 12)}...
@@ -60,7 +60,7 @@ export const Gallery = ({isMintingLoading, isLoading, nfts, type}: Props) => {
             {nft.txHash && <div>
               <a
                 className="underline"
-                href={`https://explorer.galadriel.com/transaction/${nft.txHash}`}
+                href={`https://explorer.galadriel.com/tx/${nft.txHash}`}
                 target="_blank"
               >
                 <div className="hidden lg:block">
