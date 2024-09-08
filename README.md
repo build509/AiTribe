@@ -1,12 +1,5 @@
-# Example minting dapp
 
-This is a demo app for [Galadriel](https://galadriel.com) 
-
-To see the contracts this app uses check this repo: [Contracts](https://github.com/galadriel-ai/contracts)
-
-## Development
-
-### Running Locally
+### To run locally
 
 1. Install NodeJS >=18.
 2. Clone the repository.
