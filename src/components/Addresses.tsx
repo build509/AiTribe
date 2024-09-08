@@ -1,9 +1,9 @@
 export const Addresses = () => {
   return (
-    <div className="text-left text-sm w-full pb-12 lg:pb-0">
+    <div className="text-left text-sm w-full pb-12 lg:pb-0 text-textGray">
       <div>
         <div className="hidden lg:inline">
-          Text-to-image AI contract:<br/>
+          Text-to-image AI contract:<br />
           <a
             className="underline"
             href={`https://explorer.galadriel.com/address/${process.env.NEXT_PUBLIC_CONTRACT_ADDRESS}?tab=transactions`}
@@ -13,7 +13,7 @@ export const Addresses = () => {
           </a>
         </div>
         <div className="inline lg:hidden">
-          Text-to-image AI contract:<br/>
+          Text-to-image AI contract:<br />
           <a
             className="underline"
             href={`https://explorer.galadriel.com/address/${process.env.NEXT_PUBLIC_CONTRACT_ADDRESS}?tab=transactions`}

@@ -4,11 +4,12 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 23, 91, 209;
-  --background-end-rgb: 23, 91, 209;
+  --background-start-rgb: 175, 238, 238; /* Light blue */
+  --background-end-rgb: 173, 216, 230;   /* Lighter blue */
 }
 
 body {
+  font-family: 'Space Mono', monospace;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,

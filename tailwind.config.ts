@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "rat": "url('/bg.png')",
+        // "rat": "url('/bg.png')",
       },
     },
     fontFamily: {
@@ -17,12 +17,18 @@ const config: Config = {
       PPNeueBit: ['PPNeueBit-Bold', 'sans-serif'],
     },
     colors: {
+      textGray: "#333333",
+      lilac: {
+        light: "#E0BBE4",  // Light Lilac
+        DEFAULT: "#D8BFD8", // Default Lilac
+        dark: "#B08BA6",    // Darker Lilac for accents
+      },
       black: "#000",
       white: "#fff",
       brand: {
-        blue: "#0657e0",
-        bluedark: "#002360",
-        neongreen: "#00ff66"
+        blue: "#4A90E2",
+        bluedark: "#3E4E8C",
+        neongreen: "#66FF99",
       }
     }
   },

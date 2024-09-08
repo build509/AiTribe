@@ -1,41 +1,41 @@
 "use client"
 
-import {FONT} from "@/fonts/fonts";
-import {useWeb3Modal, useWeb3ModalAccount} from '@web3modal/ethers/react'
-import {Authenticated} from "@/components/authenticated/Authenticated";
+import { FONT } from "@/fonts/fonts";
+import { useWeb3Modal, useWeb3ModalAccount } from '@web3modal/ethers/react'
+import { Authenticated } from "@/components/authenticated/Authenticated";
 import Navbar from "@/components/navbar";
-import {BuildWithGaladriel} from "@/components/buildwithgaladriel";
+import { BuildWithGaladriel } from "@/components/buildwithgaladriel";
 import Addresses from "@/components/Addresses";
 
 
 export function Landing() {
-  const {open} = useWeb3Modal()
+  const { open } = useWeb3Modal()
 
-  const {address} = useWeb3ModalAccount()
+  const { address } = useWeb3ModalAccount()
 
 
   return (
-    <main className="flex min-h-screen flex-col items-center gap-20 p-2 lg:p-12 justify-between z-2 relative">
-      <Navbar/>
+    <main className="flex min-h-screen flex-col items-center gap-20 p-2 lg:p-12 justify-between z-2 relative text-textGray">
+      <Navbar />
 
       {!address ?
         <div
           className={"flex flex-col gap-6 text-center text-xl pb-40 " + FONT.className}
         >
-          <div className="text-2xl lg:text-8xl">
-            Text-to-image brought on chain
+          <div className="text-2xl lg:text-7xl">
+            Let the community grow your project!
           </div>
           <div
             className="text-4xl pt-10"
           >
-            Use generative AI to create dynamic, on-chain NFTs
+            Create, share, and earn with every NFT!
           </div>
           <div className="pt-[100px]">
             <button
               onClick={() => open()}
-              className={"p-4 bg-[#00FF66] text-3xl text-black hover:bg-[#00b548] duration-200 " + FONT.className}
+              className={"p-4 bg-[#EEDFFF] text-3xl text-black hover:bg-[#FFFF99] duration-200 rounded-lg " + FONT.className}
             >
-              Connect wallet to Mint
+              Connect Wallet
             </button>
           </div>
           <div className="text-4xl pt-32">
@@ -47,7 +47,7 @@ export function Landing() {
             >
               Galadriel devnet
             </a>
-            and to mint, get tokens from
+            and get testnet tokens from
             <a
               href="https://discord.gg/4UuffUbkjb"
               target="_blank"
@@ -58,14 +58,14 @@ export function Landing() {
           </div>
         </div>
         :
-        <Authenticated/>
+        <Authenticated />
       }
 
 
       <div
         className={"flex w-full flex-col lg:flex-row lg:justify-between items-end text-xl p-4 lg:p-0"}>
-        <Addresses/>
-        <BuildWithGaladriel/>
+        <Addresses />
+        <BuildWithGaladriel />
       </div>
     </main>
   )

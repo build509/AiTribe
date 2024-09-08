@@ -13,7 +13,7 @@ export interface Nft {
   txHash?: string
 }
 
-export const Gallery = ({isMintingLoading, isLoading, nfts, type}: Props) => {
+export const Gallery = ({ isMintingLoading, isLoading, nfts, type }: Props) => {
 
   return <div className="w-full py-6">
     {isLoading ?
@@ -25,7 +25,7 @@ export const Gallery = ({isMintingLoading, isLoading, nfts, type}: Props) => {
             <div
               className="md:basis-1/5 square relative"
             >
-              <MintLoading/>
+              <MintLoading />
             </div>
           }
           {(nfts || []).slice(0, isMintingLoading ? 4 : 5).map((nft, i) =>
@@ -89,8 +89,8 @@ export const Gallery = ({isMintingLoading, isLoading, nfts, type}: Props) => {
 const MintLoading = () => {
   return <div className="square-content bg-[#B6B6B6] flex flex-col justify-end text-sm text-black">
     <div className="p-2">
-      Generating & minting image...
+      Generating Image...
     </div>
-    <ProgressBar duration={10}/>
+    <ProgressBar duration={10} />
   </div>
 }
